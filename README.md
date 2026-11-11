@@ -1,42 +1,44 @@
 # Hot Buns 🥐
 
-Desktopowa aplikacja do obsługi sprzedaży i planowania produkcji w małej piekarni.
-Projekt zaliczeniowy na studia (2018/2019), napisany w **C++ / Qt 5** z bazą **SQLite**.
+A desktop application for handling sales and planning production in a small bakery.
+University course project (2018/2019), written in **C++ / Qt 5** with an **SQLite** database.
 
-## Funkcje
+## Features
 
-- **Odbiorcy** – lista, dodawanie i edycja kontrahentów
-- **Towary** – kartoteka produktów (waga, cena netto, stawka VAT, cena brutto)
-- **Sprzedaż** – wystawianie dokumentów **WZ**, **faktur VAT** i **paragonów** z automatycznym przeliczaniem wartości netto/brutto i numeracją dokumentów
-- **Przegląd sprzedaży** – przeglądanie wystawionych dokumentów wg daty i typu
-- **Produkcja** – zestawienie, ile sztuk każdego towaru trzeba wyprodukować na dany dzień (suma ze wszystkich dokumentów sprzedaży)
+- **Customers** – list, add and edit customers
+- **Products** – product catalogue (weight, net price, VAT rate, gross price)
+- **Sales** – issuing **WZ** (goods dispatch notes), **VAT invoices** and **receipts**, with automatic net/gross value calculation and document numbering
+- **Sales overview** – browsing issued documents by date and type
+- **Production** – a summary of how many units of each product need to be baked on a given day (totalled across all sales documents)
 
-## Technologie
+## Tech stack
 
 - C++11, Qt 5 (Widgets, SQL)
 - SQLite (`QSQLITE`)
-- Interfejs zaprojektowany w Qt Designer (`.ui`)
+- UI designed in Qt Designer (`.ui`)
 
-## Uruchomienie
+## Building and running
 
-1. Otwórz `Projekt.pro` w Qt Creatorze (testowane na Qt 5.12, MinGW).
-2. Zbuduj projekt.
-3. Skopiuj `baza.db` do katalogu roboczego aplikacji (katalogu builda) – aplikacja otwiera bazę ze ścieżki względnej.
+1. Open `Projekt.pro` in Qt Creator (tested with Qt 5.12, MinGW).
+2. Build the project.
+3. Copy `baza.db` into the application's working directory (the build directory) – the application opens the database from a relative path.
 
-Plik `baza.db` zawiera przykładowe dane testowe. Pustą bazę można utworzyć ze schematu:
+`baza.db` contains sample test data. An empty database can be created from the schema:
 
 ```sh
 sqlite3 baza.db < schema.sql
 ```
 
-## Struktura
+## Project structure
 
-| Plik | Opis |
-|------|------|
-| `mainwindow.*` | Okno główne, zakładki modułów, połączenie z bazą |
-| `odbiorcy_*` | Wykaz i edycja odbiorców |
-| `towary_*` | Wykaz i edycja towarów |
-| `sprzedaz.*` | Wystawianie dokumentów sprzedaży |
-| `sprzedaz_przeglad.*` | Przegląd dokumentów |
-| `produkcja.*` | Planowanie produkcji |
-| `schema.sql` | Schemat bazy danych |
+The user interface and source file names are in Polish.
+
+| File | Description |
+|------|-------------|
+| `mainwindow.*` | Main window, module tabs, database connection |
+| `odbiorcy_*` | Customer list and editing |
+| `towary_*` | Product list and editing |
+| `sprzedaz.*` | Issuing sales documents |
+| `sprzedaz_przeglad.*` | Sales document overview |
+| `produkcja.*` | Production planning |
+| `schema.sql` | Database schema |
