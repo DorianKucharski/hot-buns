@@ -1,0 +1,16 @@
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.autosave
+
+# Build
+build-*/
+*.o
+*.obj
+Makefile*
+moc_*
+ui_*.h
+qrc_*.cpp
+*.exe
+debug/
+release/
